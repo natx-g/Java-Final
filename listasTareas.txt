@@ -1,0 +1,4 @@
+Prueba
+  - [ ] Comprar chiles
+  - [ ] Comprar jamon
+  - [X] comprar queso
