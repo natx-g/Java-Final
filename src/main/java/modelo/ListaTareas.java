@@ -71,7 +71,8 @@ public class ListaTareas extends Elemento implements Gestionable, Serializable {
     public void marcarTareaComoRealizada(int indice) {
         // Programación defensiva
         if (indice < 0 || indice >= tareas.size()) {
-            throw new IndexOutOfBoundsException("Índice no válido");
+            System.out.println("Índice no válido. Por favor, seleccione un índice dentro del rango.");
+            return;
         }
         Tarea tarea = tareas.get(indice);
         tarea.setHecha(true);

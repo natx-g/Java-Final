@@ -15,7 +15,7 @@ public class Menu {
     }
 
     public void mostrarMenu() {
-        int opcion;
+        int opcion = 0;
         do {
             System.out.println("Menú de Opciones:");
             System.out.println("1. Crear nueva lista de tareas");
@@ -26,8 +26,13 @@ public class Menu {
             System.out.println("6. Gestionar tareas de lista");
             System.out.println("7. Guardar y Salir");
             System.out.print("Seleccione una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+
+            try {
+                opcion = Integer.parseInt(scanner.nextLine()); // Leer la entrada como String y convertir a int
+            } catch (NumberFormatException e) {
+                System.out.println("Opción no válida. Por favor, seleccione una opción dentro del rango.");
+                continue; // Volver al inicio del bucle
+            }
 
             switch (opcion) {
                 case 1:
@@ -52,7 +57,7 @@ public class Menu {
                     guardarYSalir();
                     break;
                 default:
-                    System.out.println("Opción no válida. Intente de nuevo.");
+                    System.out.println("Opción no válida. Por favor, seleccione una opción dentro del rango.");
             }
         } while (opcion != 7);
     }
