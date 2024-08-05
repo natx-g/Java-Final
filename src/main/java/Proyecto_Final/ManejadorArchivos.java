@@ -37,7 +37,7 @@ public class ManejadorArchivos {
                     listas.add(listaActual);
                 } else if (listaActual != null) {
                     String estado = linea.trim().substring(3, 6);
-                    String descripcion = linea.trim().substring(7);
+                    String descripcion = linea.trim().substring(6);
                     Tarea tarea = new Tarea(descripcion);
                     tarea.setHecha(estado.equals("[X]"));
                     listaActual.agregarTarea(tarea);

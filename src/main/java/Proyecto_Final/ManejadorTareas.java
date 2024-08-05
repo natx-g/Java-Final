@@ -65,5 +65,6 @@ public class ManejadorTareas {
         int indice = scanner.nextInt();
         scanner.nextLine(); // Limpiar el buffer
         lista.marcarTareaComoRealizada(indice);
+        //try....
     }
 }

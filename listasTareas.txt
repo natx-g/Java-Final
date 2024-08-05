@@ -1,4 +1,3 @@
-Prueba
-  - [ ] Comprar chiles
-  - [ ] Comprar jamon
-  - [X] comprar queso
+Compras
+  - [X] cebolla
+  - [ ] zanahoria

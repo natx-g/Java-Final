@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 // Herencia de Elemento, implementación de interfaces y Serializable
 public class ListaTareas extends Elemento implements Gestionable, Serializable {
@@ -32,6 +31,13 @@ public class ListaTareas extends Elemento implements Gestionable, Serializable {
         if (tarea == null) {
             throw new IllegalArgumentException("La tarea no puede ser nula");
         }
+        // Verificar si la tarea ya existe
+        for (Tarea t : tareas) {
+            if (t.getDescripcion().equals(tarea.getDescripcion())) {
+                System.out.println("La tarea ya existe. Por favor, elige otro nombre.");
+                return;
+            }
+        }
         tareas.add(tarea);
     }
 
@@ -40,6 +46,13 @@ public class ListaTareas extends Elemento implements Gestionable, Serializable {
         // Programación defensiva
         if (descripcion == null || descripcion.trim().isEmpty()) {
             throw new IllegalArgumentException("La descripción no puede ser nula o vacía");
+        }
+        // Verificar si la tarea ya existe
+        for (Tarea t : tareas) {
+            if (t.getDescripcion().equals(descripcion)) {
+                System.out.println("La tarea ya existe. Por favor, elige otro nombre.");
+                return;
+            }
         }
         Tarea tarea = new Tarea(descripcion);
         tareas.add(tarea);
@@ -71,7 +84,7 @@ public class ListaTareas extends Elemento implements Gestionable, Serializable {
         for (int i = 0; i < tareas.size(); i++) {
             Tarea tarea = tareas.get(i);
             String estado = tarea.isHecha() ? "[X]" : "[ ]";
-            System.out.printf("%d. %s %s%n", i + 1, estado, tarea.getDescripcion());
+            System.out.printf("%d. %s %s%n", i , estado, tarea.getDescripcion());
         }
     }
 }

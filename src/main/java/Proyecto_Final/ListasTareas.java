@@ -13,6 +13,13 @@ public class ListasTareas {
     }
 
     public void agregarLista(ListaTareas lista) {
+        // Verificar si la lista ya existe
+        for (ListaTareas l : listas) {
+            if (l.getNombre().equals(lista.getNombre())) {
+                System.out.println("La lista ya existe. Por favor, elige otro nombre.");
+                return;
+            }
+        }
         listas.add(lista);
     }
 
