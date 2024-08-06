@@ -27,11 +27,19 @@ public class Menu {
             System.out.println("7. Guardar y Salir");
             System.out.print("Seleccione una opción: ");
 
+            String input = scanner.nextLine().trim();
+
+            if (input.isEmpty()) {
+                System.out.println("Opción no válida. Por favor, seleccione una opción dentro del rango.");
+                continue;  //entrada en blanco
+
+            }
+
             try {
-                opcion = Integer.parseInt(scanner.nextLine()); // Leer la entrada como String y convertir a int
+                opcion = Integer.parseInt(input);
             } catch (NumberFormatException e) {
                 System.out.println("Opción no válida. Por favor, seleccione una opción dentro del rango.");
-                continue; // Volver al inicio del bucle
+                continue;
             }
 
             switch (opcion) {

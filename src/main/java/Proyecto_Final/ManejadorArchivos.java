@@ -36,11 +36,12 @@ public class ManejadorArchivos {
                     listaActual = new ListaTareas(linea.trim());
                     listas.add(listaActual);
                 } else if (listaActual != null) {
-                    String estado = linea.trim().substring(3, 6);
+                    String estado = linea.trim().substring(2, 5);
                     String descripcion = linea.trim().substring(6);
                     Tarea tarea = new Tarea(descripcion);
                     tarea.setHecha(estado.equals("[X]"));
                     listaActual.agregarTarea(tarea);
+
                 }
             }
         } catch (IOException e) {

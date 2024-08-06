@@ -22,7 +22,7 @@ public class ManejadorTareas {
             System.out.print("Seleccione una opción: ");
 
             try {
-                opcion = Integer.parseInt(scanner.nextLine()); // Leer la entrada como String y convertir a int
+                opcion = Integer.parseInt(scanner.nextLine()); // si tiene entra en blanco
             } catch (NumberFormatException e) {
                 System.out.println("Opción no válida. Por favor, seleccione una opción dentro del rango.");
                 continue; // Volver al inicio del bucle
@@ -48,8 +48,15 @@ public class ManejadorTareas {
     }
 
     private void agregarTarea(ListaTareas lista) {
-        System.out.println("Ingrese la descripción de la nueva tarea:");
-        String descripcion = scanner.nextLine();
+        String descripcion;
+        do {
+            System.out.println("Ingrese la descripción de la nueva tarea:");
+            descripcion = scanner.nextLine().trim();
+            if (descripcion.isEmpty()) {
+                System.out.println("Descripción no válida. Por favor, ingrese una descripción.");
+            }
+        } while (descripcion.isEmpty());
+
         // Verificar si la tarea ya existe
         for (Tarea t : lista.getTareas()) {
             if (t.getDescripcion().equals(descripcion)) {
