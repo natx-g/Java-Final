@@ -31,7 +31,7 @@ public class Menu {
 
             if (input.isEmpty()) {
                 System.out.println("Opción no válida. Por favor, seleccione una opción dentro del rango.");
-                continue;  //entrada en blanco
+                continue;  //entrada en blanco para la clase
 
             }
 
